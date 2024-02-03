@@ -62,7 +62,6 @@ export default function Search() {
           })),
       ]);
       setPageLoader(false);
-      console.log(tvShows, movies);
     }
 
     getSearchResults();
@@ -76,8 +75,7 @@ export default function Search() {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-    >
+      viewport={{ once: true }}>
       <Navbar />
       <div className="mt-[100px] space-y-0.5 md:space-y-2 px-4">
         <h2 className="cursor-pointer text-sm font-semibold text-[#e5e5e5] transition-colors duration-200 hover:text-white md:text-2xl">

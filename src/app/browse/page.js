@@ -25,8 +25,6 @@ export default function Browse() {
 
   const { data: session } = useSession();
 
-  console.log(session, "session");
-
   useEffect(() => {
     async function getAllMedias() {
       const trendingTvShows = await getTrendingMedias("tv");
@@ -102,8 +100,6 @@ export default function Browse() {
   if (session === null) return <UnauthPage />;
   if (loggedInAccount === null) return <ManageAccounts />;
   if (pageLoader) return <CircleLoader />;
-
-  console.log(mediaData);
 
   return (
     <main className="flex min-h-screen flex-col">

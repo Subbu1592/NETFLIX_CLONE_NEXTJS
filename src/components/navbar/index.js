@@ -76,8 +76,6 @@ export default function Navbar() {
 
     const data = await res.json();
 
-    console.log(data);
-
     if (data && data.data && data.data.length) {
       setAccounts(data.data);
       setPageLoader(false);
@@ -95,8 +93,7 @@ export default function Navbar() {
   return (
     <div className="relative">
       <header
-        className={`header ${isScrolled && "bg-[#141414]"} hover:bg-[#141414]`}
-      >
+        className={`header ${isScrolled && "bg-[#141414]"} hover:bg-[#141414]`}>
         <div className="flex items-center space-x-2 md:space-x-10">
           <img
             src="https://rb.gy/ulxxee"
@@ -116,8 +113,7 @@ export default function Navbar() {
                   setShowSearchBar(false);
                 }}
                 className="cursor-pointer text-[16px] font-light text-[#e5e5e5] transition duration-[.4s] hover:text-[#b3b3b3]"
-                key={item.id}
-              >
+                key={item.id}>
                 {item.title}
               </li>
             ))}
@@ -141,8 +137,7 @@ export default function Navbar() {
           )}
           <div
             onClick={() => setShowAccountPopup(!showAccountPopup)}
-            className="flex gap-2 items-center cursor-pointer"
-          >
+            className="flex gap-2 items-center cursor-pointer">
             <img
               src="https://occ-0-2611-3663.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABfNXUMVXGhnCZwPI1SghnGpmUgqS_J-owMff-jig42xPF7vozQS1ge5xTgPTzH7ttfNYQXnsYs4vrMBaadh4E6RTJMVepojWqOXx.png?r=1d4"
               alt="Current Profile"

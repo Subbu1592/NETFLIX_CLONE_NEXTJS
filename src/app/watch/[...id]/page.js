@@ -43,8 +43,6 @@ export default function Watch() {
 
         setPageLoader(false);
       }
-
-      console.log(extractMediaDetails);
     }
 
     getMediaDetails();
@@ -60,8 +58,7 @@ export default function Watch() {
         duration: 0.8,
         delay: 0.5,
         ease: [0, 0.71, 0.2, 1.01],
-      }}
-    >
+      }}>
       <ReactPlayer
         url={`https://www.youtube.com/watch?v=${key}`}
         width={"100%"}

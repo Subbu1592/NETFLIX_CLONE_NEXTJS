@@ -115,8 +115,6 @@ export default function MediaItem({
         setMediaData(updatedMediaData);
       }
     }
-
-    console.log(data, "sangam");
   }
 
   async function handleRemoveFavorites(item) {
@@ -137,8 +135,7 @@ export default function MediaItem({
         duration: 0.8,
         delay: 0.5,
         ease: [0, 0.71, 0.2, 1.01],
-      }}
-    >
+      }}>
       <div className="relative cardWrapper h-28 min-w-[180px] cursor-pointer md:h-36 md:min-w-[260px] transform transition duration-500 hover:scale-110 hover:z-[999]">
         <Image
           src={`${baseUrl}${media?.backdrop_path || media?.poster_path}`}
@@ -162,8 +159,7 @@ export default function MediaItem({
             }
             className={`${
               media?.addedToFavorites && !listView && "cursor-not-allowed"
-            } cursor-pointer border flex p-2 items-center gap-x-2 rounded-full  text-sm font-semibold transition hover:opacity-90 border-white   bg-black opacity-75 text-black`}
-          >
+            } cursor-pointer border flex p-2 items-center gap-x-2 rounded-full  text-sm font-semibold transition hover:opacity-90 border-white   bg-black opacity-75 text-black`}>
             {media?.addedToFavorites ? (
               <CheckIcon color="#ffffff" className="h-7 w-7" />
             ) : (
@@ -178,8 +174,7 @@ export default function MediaItem({
                 id: listView ? media?.movieID : media?.id,
               });
             }}
-            className="cursor-pointer p-2 border flex items-center gap-x-2 rounded-full  text-sm font-semibold transition hover:opacity-90  border-white  bg-black opacity-75 "
-          >
+            className="cursor-pointer p-2 border flex items-center gap-x-2 rounded-full  text-sm font-semibold transition hover:opacity-90  border-white  bg-black opacity-75 ">
             <ChevronDownIcon color="#fffffff" className="h-7 w-7" />
           </button>
         </div>

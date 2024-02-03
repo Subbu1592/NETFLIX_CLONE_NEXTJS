@@ -5,7 +5,11 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useContext } from "react";
 import { GlobalContext } from "@/context";
 import { useEffect } from "react";
-import { getAllfavorites, getSimilarTVorMovies, getTVorMovieDetailsByID } from "@/utils";
+import {
+  getAllfavorites,
+  getSimilarTVorMovies,
+  getTVorMovieDetailsByID,
+} from "@/utils";
 import { useState } from "react";
 import ReactPlayer from "react-player";
 import MediaItem from "../media-item";
@@ -25,10 +29,8 @@ export default function DetailsPopup({ show, setShow }) {
   } = useContext(GlobalContext);
   const [key, setKey] = useState("");
 
-  const router = useRouter()
+  const router = useRouter();
   const { data: session } = useSession();
-
-  console.log(currentMediaInfoIdAndType);
 
   useEffect(() => {
     if (currentMediaInfoIdAndType !== null) {
@@ -47,8 +49,6 @@ export default function DetailsPopup({ show, setShow }) {
           session?.user?.uid,
           loggedInAccount?._id
         );
-
-        console.log(extractMediaDetails, "extractMediaDetails");
 
         const findIndexOfTrailer =
           extractMediaDetails &&
@@ -82,10 +82,9 @@ export default function DetailsPopup({ show, setShow }) {
             ...item,
             type: currentMediaInfoIdAndType.type === "movie" ? "movie" : "tv",
             addedToFavorites:
-            allFavorites && allFavorites.length
-              ? allFavorites.map((fav) => fav.movieID).indexOf(item.id) >
-                -1
-              : false,
+              allFavorites && allFavorites.length
+                ? allFavorites.map((fav) => fav.movieID).indexOf(item.id) > -1
+                : false,
           }))
         );
       }
@@ -96,7 +95,7 @@ export default function DetailsPopup({ show, setShow }) {
 
   function handleClose() {
     setShow(false);
-    setCurrentMediaInfoIdAndType(null)
+    setCurrentMediaInfoIdAndType(null);
   }
 
   return (
@@ -107,18 +106,15 @@ export default function DetailsPopup({ show, setShow }) {
         duration: 0.8,
         delay: 0.5,
         ease: [0, 0.71, 0.2, 1.01],
-      }}
-    >
+      }}>
       <MuiModal
         open={show}
         onClose={handleClose}
-        className="fixed !top-7 left-0 right-0 z-50 w-full mx-auto max-w-5xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide"
-      >
+        className="fixed !top-7 left-0 right-0 z-50 w-full mx-auto max-w-5xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide">
         <div>
           <button
             onClick={handleClose}
-            className="modalButton flex items-center justify-center absolute top-5 right-5 bg-[#181818] hover:bg-[#181818] !z-40 border-none h-9 w-9"
-          >
+            className="modalButton flex items-center justify-center absolute top-5 right-5 bg-[#181818] hover:bg-[#181818] !z-40 border-none h-9 w-9">
             <XMarkIcon className="h-6 w-6" />
           </button>
           <div className="relative pt-[56.25%]">
@@ -138,8 +134,7 @@ export default function DetailsPopup({ show, setShow }) {
                       `/watch/${currentMediaInfoIdAndType?.type}/${currentMediaInfoIdAndType?.id}`
                     )
                   }
-                  className="cursor-pointer flex items-center gap-x-2 rounded px-5 py-1.5 text-sm font-semibold transition hover:opacity-75 md:py-2.5 md:px-8 md:text-xl bg-white text-black"
-                >
+                  className="cursor-pointer flex items-center gap-x-2 rounded px-5 py-1.5 text-sm font-semibold transition hover:opacity-75 md:py-2.5 md:px-8 md:text-xl bg-white text-black">
                   <AiFillPlayCircle className="h-4 w-4 text-black md:h-7 md:w-7 cursor-pointer" />
                   Play
                 </button>

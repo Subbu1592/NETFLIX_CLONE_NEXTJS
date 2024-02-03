@@ -38,12 +38,12 @@ Kids profiles come with PIN-protected parental controls that let you restrict th
 ];
 
 function UnauthBanner({ router }) {
+  const [signInModal, setSignInModal] = useState(false);
   return (
     <div className="h-[65vh] sm:h-[90vh] xl:h-[95vh] bg-cover bg-no-repeat bg-[url('https://assets.nflxext.com/ffe/siteui/vlv3/84526d58-475e-4e6f-9c81-d2d78ddce803/e3b08071-f218-4dab-99a2-80315f0922cd/LK-en-20221228-popsignuptwoweeks-perspective_alpha_website_small.jpg')] border-b-8 border-gray-800  ">
       <div
         className="bg-black bg-opacity-70 h-[100vh]
-    "
-      >
+    ">
         <div className="flex items-center justify-between">
           <img
             src="https://rb.gy/ulxxee"
@@ -56,8 +56,7 @@ function UnauthBanner({ router }) {
           <div className="flex mr-4 sm:mr-10">
             <button
               onClick={() => signIn("github")}
-              className="h-8 px-1 sm:px-4 m-2 text-white bg-[#e50914] rounded"
-            >
+              className="h-8 px-1 sm:px-4 m-2 text-white bg-[#e50914] rounded">
               Sign In
             </button>
           </div>
@@ -69,13 +68,16 @@ function UnauthBanner({ router }) {
           <h2 className="text-lg sm:text-1xl lg:text-2xl font-medium m-2 sm:m-4">
             Watch anywhere. Cancel anytime.
           </h2>
-          <div className="flex  justify-center">
+          <div className="flex flex-col justify-center">
             <button
               onClick={() => signIn("github")}
-              className="bg-red-600 hover:bg-[#e50914] p-4 rounded"
-            >
+              // onClick={() => setSignInModal(true)}
+              className="bg-red-600 hover:bg-[#e50914] p-4 rounded">
               Sign In to Get Started
             </button>
+            {/* {signInModal && (
+              <div className="bg-slate-800">Sign in to see my project</div>
+            )} */}
           </div>
         </div>
       </div>
@@ -91,8 +93,7 @@ export default function UnauthPage() {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-    >
+      viewport={{ once: true }}>
       <main>
         <div className="bg-[#000000]">
           <UnauthBanner router={router} />
@@ -104,9 +105,10 @@ export default function UnauthPage() {
               {questions.map((item, index) => (
                 <div className="flex flex-col gap-3">
                   <div
-                    onClick={() => setShowCurrentAns(showCurrentAns === index ? null : index)}
-                    className="flex justify-between p-3 lg:p-5 mt-2 bg-[#303030] cursor-pointer"
-                  >
+                    onClick={() =>
+                      setShowCurrentAns(showCurrentAns === index ? null : index)
+                    }
+                    className="flex justify-between p-3 lg:p-5 mt-2 bg-[#303030] cursor-pointer">
                     <h2>{item.ques}</h2>
                     <PlusIcon className="h-7 w-7" color="white" />
                   </div>

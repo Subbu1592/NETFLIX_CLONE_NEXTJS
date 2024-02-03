@@ -39,7 +39,6 @@ export default function medias() {
         session?.user?.uid,
         loggedInAccount?._id
       );
-      console.log(allFavorites, 'allFavorites');
       setMediaData(
         [
           {
@@ -116,8 +115,6 @@ export default function medias() {
   if (session === null) return <UnauthPage />;
   if (loggedInAccount === null) return <ManageAccounts />;
   if (pageLoader) return <CircleLoader />;
-
-  console.log(mediaData, "mediaData");
 
   return (
     <main className="flex min-h-screen flex-col">
