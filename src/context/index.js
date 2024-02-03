@@ -19,7 +19,7 @@ export default function GlobalState({ children }) {
   const [similarMedias, setSimilarMedias] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
-  //
+  //  kkk
   const { data: session } = useSession();
 
   useEffect(() => {
