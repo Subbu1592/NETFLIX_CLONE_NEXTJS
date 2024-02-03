@@ -50,8 +50,7 @@ export default function GlobalState({ children }) {
         setSimilarMedias,
         favorites,
         setFavorites,
-      }}
-    >
+      }}>
       {children}
     </GlobalContext.Provider>
   );
